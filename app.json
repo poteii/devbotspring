@@ -1,10 +1,10 @@
 {
     "name": "echo bot - LINE Messaging API",
-    "description": "nh7BWpnKFdxiz9UTcB3HttsbbBC9DIxMHeQUGznWDqLQ6yAyM9iyYSqn6BO4Yg+6NxNqZA3ZDmcu/1O7RTO0SL4vUdQdoTgOkQCVJP8Qm5O2ivj40/ezbv/n51ekqhaFUGl47j8Yvx8ChjaEhfH/DAdB04t89/1O/w1cDnyilFU=",
+    "description": "This is a sample application for the LINE Messaging API",
     "keywords": ["chatbot", "line", "java"],
     "env": {
         "LINE_BOT_CHANNEL_TOKEN": {
-            "description": "LINE bot Channel access token from the Channel Console",
+            "description": "nh7BWpnKFdxiz9UTcB3HttsbbBC9DIxMHeQUGznWDqLQ6yAyM9iyYSqn6BO4Yg+6NxNqZA3ZDmcu/1O7RTO0SL4vUdQdoTgOkQCVJP8Qm5O2ivj40/ezbv/n51ekqhaFUGl47j8Yvx8ChjaEhfH/DAdB04t89/1O/w1cDnyilFU=",
             "required":  true
         },
         "LINE_BOT_CHANNEL_SECRET": {
