@@ -95,7 +95,7 @@ subprojects {
     }
 
     dependencies {
-        compile 'org.projectlombok:lombok'
+        compileOnly 'org.projectlombok:lombok'
         compile 'com.linecorp.bot:line-bot-spring-boot:1.8.0'
 	    compile 'com.linecorp.bot:line-bot-servlet:1.8.0'
 	    compile 'com.linecorp.bot:line-bot-model:1.8.0'
