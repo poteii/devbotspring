@@ -95,7 +95,11 @@ subprojects {
     }
 
     dependencies {
-        compileOnly 'org.projectlombok:lombok'
+        compile 'org.projectlombok:lombok'
+        compile 'com.linecorp.bot:line-bot-spring-boot:1.8.0'
+	    compile 'com.linecorp.bot:line-bot-servlet:1.8.0'
+	    compile 'com.linecorp.bot:line-bot-model:1.8.0'
+	    compile 'com.linecorp.bot:line-bot-api-client:1.8.0'
         testCompileOnly 'org.projectlombok:lombok'
 
         compileOnly "org.springframework.boot:spring-boot-configuration-processor"
@@ -142,62 +146,6 @@ subprojects {
     project.plugins.withType(org.springframework.boot.gradle.plugin.SpringBootPlugin) {
         bootRun {
             systemProperties System.properties
-        }
-    }
-}
-
-[':line-bot-api-client', ':line-bot-model', ':line-bot-servlet', ':line-bot-spring-boot'].each { projectName ->
-    project(projectName) { project ->
-        apply plugin: 'signing'
-        apply plugin: 'maven'
-
-        signing {
-            required { isReleaseBuild }
-            sign configurations.archives
-        }
-
-        uploadArchives {
-            repositories {
-                if (isDevBuild) {
-                    mavenLocal()
-                } else {
-                    mavenDeployer {
-                        if (isReleaseBuild) {
-                            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-                        }
-
-                        repository(url: sonatypeRepositoryUrl) {
-                            authentication(userName: sonatypeUsername, password: sonatypePassword)
-                        }
-
-                        pom.project {
-                            name project.name
-                            packaging 'jar'
-                            description project.description
-                            url 'https://github.com/line/line-bot-sdk-java'
-
-                            scm {
-                                url 'scm:git@github.com:line/line-bot-sdk-java.git'
-                                connection 'scm:git@github.com:line/line-bot-sdk-java.git'
-                                developerConnection 'scm:git@github.com:line/line-bot-sdk-java.git'
-                            }
-                            licenses {
-                                license {
-                                    name 'Apache'
-                                    url 'https://opensource.org/licenses/Apache-2.0'
-                                }
-                            }
-                            developers {
-                                developer {
-                                    id 'tokuhirom'
-                                    name 'Tokuhiro Matsuno'
-                                    email 'tokuhirom@gmail.com'
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
