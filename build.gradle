@@ -96,17 +96,17 @@ subprojects {
 
     dependencies {
         compileOnly 'org.projectlombok:lombok'
-        testCompileOnly 'org.projectlombok:lombok'
+    //    testCompileOnly 'org.projectlombok:lombok'
 
         compileOnly "org.springframework.boot:spring-boot-configuration-processor"
         // http://docs.spring.io/spring-boot/docs/current/reference/html/configuration-metadata.html#configuration-metadata-annotation-processor
 
-        testCompile 'com.google.guava:guava'
+   /*     testCompile 'com.google.guava:guava'
         testCompile 'com.github.stefanbirkner:system-rules'
         testCompile 'com.squareup.okhttp3:mockwebserver'
-        testCompile 'org.hibernate:hibernate-validator'
+        testCompile 'org.hibernate:hibernate-validator'*/
    //     testCompile 'org.springframework.boot:spring-boot-starter-test' // MockHttpServletRequest
-        testCompile 'org.springframework.boot:spring-boot-starter-logging'
+    //    testCompile 'org.springframework.boot:spring-boot-starter-logging'
     }
 
     compileJava.dependsOn(processResources)
